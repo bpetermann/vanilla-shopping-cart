@@ -1,0 +1,39 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  background-color: #ffffff;
+  --textPrimary: #ffffff;
+}
+
+body {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+/* Infobar */
+#header-info-bar {
+  background-color: #3e1062;
+  color: var(--textPrimary);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#header-info-bar > button {
+  all: unset;
+  cursor: pointer;
+  height: 18px;
+  margin-left: 8px;
+}
+
+#header-info-bar > button > img {
+  height: 100%;
+  width: auto;
+  filter: invert(95%) sepia(0%) saturate(7500%) hue-rotate(26deg)
+    brightness(107%) contrast(108%);
+}
