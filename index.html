@@ -8,20 +8,21 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Header -->
     <header>
-      <div id="header-info-bar">
+      <div id="info-bar">
         <p>FREE SHIPPING AND RETURNS</p>
         <button class="icon-button close">
           <img src="/images/icons/close.png" alt="close" />
         </button>
       </div>
 
-      <div id="header-navbar">
+      <div id="navbar">
         <div>
-          <nav>
-            <button>Shoes</button>
-            <button>Bags</button>
-          </nav>
+          <div class="menu">
+            <button class="menu-button">Shoes</button>
+            <button class="menu-button">Bags</button>
+          </div>
 
           <div id="logo">
             <div>
@@ -30,18 +31,18 @@
             <h3>shopping cart</h3>
           </div>
 
-          <div>
+          <nav>
             <button class="icon-button favorite">
               <img src="/images/icons/favorite.png" alt="close" />
             </button>
             <button class="icon-button cart">
               <img src="/images/icons/cart.png" alt="close" />
             </button>
-          </div>
+          </nav>
         </div>
       </div>
 
-      <div id="header-searchbar">
+      <div id="searchbar">
         <button class="burger-button">
           <span></span>
           <span></span>
@@ -50,5 +51,81 @@
         <input type="text" />
       </div>
     </header>
+    <main>
+      <!-- Hero -->
+      <div id="hero">
+        <div>
+          <div class="hero-info">
+            <h1>DROP WINTER 2022</h1>
+            <p>The 3 Pairs of Shoes You Need for this Winter</p>
+            <button>
+              Shop now
+              <img src="/images/icons/arrow.png" alt="Arrow right" />
+            </button>
+          </div>
+          <div class="hero-image">
+            <img src="/images/website/model.webp" alt="Model" />
+          </div>
+        </div>
+      </div>
+      <!-- Products -->
+      <div id="products">
+        <div>
+          <ul>
+            <li>
+              <div id="product">
+                <div class="product-image">
+                  <img
+                    src="/images/products/Sandals.webp"
+                    alt="brogues image"
+                    title="brogues image"
+                  />
+                  <button class="product-favorite">
+                    <img src="/images/icons/favorite.png" alt="favorite" />
+                  </button>
+                </div>
+                <p>Maroon sandals</p>
+                <p>24.99 $</p>
+                <button>Add to Cart</button>
+              </div>
+            </li>
+            <li>
+              <div id="product">
+                <div class="product-image">
+                  <img
+                    src="/images/products/Brogues.webp"
+                    alt="brogues image"
+                    title="brogues image"
+                  />
+                  <button class="product-favorite">
+                    <img src="/images/icons/favorite.png" alt="favorite" />
+                  </button>
+                </div>
+                <p>Green wingtip brogues</p>
+                <p>85.99 $</p>
+                <button>Add to Cart</button>
+              </div>
+            </li>
+            <li>
+              <div id="product">
+                <div class="product-image">
+                  <img
+                    src="/images/products/Sneakers.webp"
+                    alt="brogues image"
+                    title="brogues image"
+                  />
+                  <button class="product-favorite">
+                    <img src="/images/icons/favorite.png" alt="favorite" />
+                  </button>
+                </div>
+                <p>Multi-coloured Sneakers</p>
+                <p>69.99 $</p>
+                <button>Add to Cart</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
