@@ -8,7 +8,8 @@ body {
   margin: 0;
 }
 
-p {
+p,
+h3 {
   margin: 0;
 }
 
@@ -24,16 +25,128 @@ p {
   justify-content: center;
 }
 
-#header-info-bar > button {
+@media (max-width: 768px) {
+  #header-info-bar {
+    display: none;
+  }
+}
+
+/* Navbar */
+#header-navbar {
+  display: flex;
+  justify-content: center;
+}
+
+#header-navbar > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1216px;
+  padding: 8px;
+}
+
+nav > button {
+  all: unset;
+  padding: 6px 8px;
+  color: #000;
+  cursor: pointer;
+  min-width: 64px;
+  text-align: center;
+}
+
+nav > button:hover {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#logo > div > img {
+  height: 24px;
+  width: 24px;
+}
+
+@media (max-width: 768px) {
+  #header-navbar > div > nav {
+    display: none;
+  }
+}
+
+/* Searchbar */
+#header-searchbar {
+  display: none;
+}
+
+.burger-button {
+  width: 48px;
+  border: none;
+  cursor: pointer;
+  background-color: #fff;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  vertical-align: middle;
+  border-right: 1px solid #d0d1d3;
+}
+
+.burger-button:focus {
+  outline: none;
+}
+
+span {
+  width: 60%;
+  height: 1.6px;
+  background: #525252;
+  display: block;
+  margin: 9px 6.4px;
+}
+
+span:nth-of-type(2) {
+  width: 40%;
+}
+
+.icon-button {
   all: unset;
   cursor: pointer;
-  height: 18px;
   margin-left: 8px;
 }
 
-#header-info-bar > button > img {
+.icon-button > img {
   height: 100%;
   width: auto;
+  margin-left: 8px;
+}
+
+input {
+  width: 100%;
+  outline: none;
+  border: none;
+  text-align: start;
+  font-size: 16px;
+  padding-left: 16px;
+}
+
+@media (max-width: 768px) {
+  #header-searchbar {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #d0d1d3;
+    border-bottom: 1px solid #d0d1d3;
+  }
+}
+
+.close {
+  height: 18px;
   filter: invert(95%) sepia(0%) saturate(7500%) hue-rotate(26deg)
     brightness(107%) contrast(108%);
+}
+
+.favorite,
+.cart {
+  height: 24px;
 }
