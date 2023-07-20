@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla Cart</title>
 
+    <script src="app.js" defer type="module"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -12,7 +13,7 @@
     <header>
       <div id="info-bar">
         <p>FREE SHIPPING AND RETURNS</p>
-        <button class="icon-button close">
+        <button class="icon-button close light">
           <img src="/images/icons/close.png" alt="close" />
         </button>
       </div>
@@ -165,39 +166,73 @@
           </form>
         </div>
       </div>
-      <!-- Footer -->
-      <footer>
-        <div>
-          <nav class="footer-links">
-            <ul>
-              <li>About</li>
-              <li>Imprint</li>
-              <li>Terms & Conditions</li>
-              <li>Data settings</li>
-            </ul>
-          </nav>
-          <nav class="footer-social">
-            Find more inspiration:
-            <ul>
-              <li>
-                <img src="/images/icons/facebook.png" alt="facebook logo" />
-              </li>
-              <li>
-                <img src="/images/icons/spotify.png" alt="spotify logo" />
-              </li>
-              <li>
-                <img src="/images/icons/instagram.png" alt="instagram logo" />
-              </li>
-              <li>
-                <img src="/images/icons/youtube.png" alt="youtube logo" />
-              </li>
-              <li>
-                <img src="/images/icons/twitter.png" alt="twitter logo" />
+      <!-- Cart -->
+      <div id="modal" hidden>
+        <div id="backdrop"></div>
+        <div id="cart">
+          <div>
+            <div>
+              <button class="icon-button close">
+                <img src="/images/icons/close.png" alt="close" />
+              </button>
+            </div>
+            <h3>Cart (3)</h3>
+            <ul class='cart-list'>
+              <li class='cart-item'>
+                <div>
+                  <h4>Brogues</h4>
+                  <div>
+                    <span>85.99 $</span>
+                    <span>1X</span>
+                  </div>
+                </div>
+                <div>
+                  <button>+</button>
+                  <button>-</button>
+                </div>
               </li>
             </ul>
-          </nav>
+            <div class="cart-total">
+              <span >Total Amount</span>
+              <span>140 $</span>
+            </div>
+            <button>Order</button>
+          </div>
         </div>
-      </footer>
+      </div>
     </main>
+    <!-- Footer -->
+    <footer>
+      <div>
+        <nav class="footer-links">
+          <ul>
+            <li>About</li>
+            <li>Imprint</li>
+            <li>Terms & Conditions</li>
+            <li>Data settings</li>
+          </ul>
+        </nav>
+        <nav class="footer-social">
+          Find more inspiration:
+          <ul>
+            <li>
+              <img src="/images/icons/facebook.png" alt="facebook logo" />
+            </li>
+            <li>
+              <img src="/images/icons/spotify.png" alt="spotify logo" />
+            </li>
+            <li>
+              <img src="/images/icons/instagram.png" alt="instagram logo" />
+            </li>
+            <li>
+              <img src="/images/icons/youtube.png" alt="youtube logo" />
+            </li>
+            <li>
+              <img src="/images/icons/twitter.png" alt="twitter logo" />
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
   </body>
 </html>
