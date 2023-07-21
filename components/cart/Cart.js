@@ -7,23 +7,24 @@ export default class Cart extends HTMLComponent {
   connectedCallback() {
     this.appendClone('cart-template');
 
-    this.root.querySelector('button.close').addEventListener('click', () => {
-      const main = document.querySelector('main');
-      main.removeChild(document.querySelector('cart-modal'));
-    });
+    this.list = this.root.querySelector('ul');
+    this.heading = this.root.querySelector('h3');
+    this.total = this.root.querySelector('div > span');
+    this.amount = this.root.querySelector('span.total');
+    this.close = this.root.querySelector('button.close');
 
+    this.closeHandler();
     this.render();
-    this.root.querySelector('h3').textContent = `Cart (${this.totalItems()})`;
-    this.root.querySelector(
-      'span.total'
-    ).textContent = `${this.totalPrice()}  $`;
 
     window.addEventListener('cartChanged', () => {
       this.render();
-      this.root.querySelector('h3').textContent = `Cart (${this.totalItems()})`;
-      this.root.querySelector(
-        'span.total'
-      ).textContent = `${this.totalPrice()}  $`;
+    });
+  }
+
+  closeHandler() {
+    this.close.onClick(() => {
+      const main = document.querySelector('main');
+      main.removeChild(document.querySelector('cart-modal'));
     });
   }
 
@@ -42,15 +43,26 @@ export default class Cart extends HTMLComponent {
   }
 
   render() {
-    if (app.store.cart) {
-      this.root.querySelector('ul').innerHTML = '';
+    this.list.innerHTML = '';
 
-      app.store.cart.map((product) => {
-        const item = document.createElement('cart-item');
-        item.dataset.product = JSON.stringify(product);
-        this.root.querySelector('ul').appendChild(item);
-      });
+    if (app.store.cart.length) {
+      this.heading.textContent = `Cart (${this.totalItems()})`;
+      this.total.textContent = `Total`;
+      this.amount.textContent = `${this.totalPrice()}  $`;
+      this.renderItems();
+    } else {
+      this.heading.style.display = 'none';
+      this.total.style.display = 'none';
+      this.amount.style.display = 'none';
     }
+  }
+
+  renderItems() {
+    app.store.cart.map((product) => {
+      const item = document.createElement('cart-item');
+      item.dataset.product = JSON.stringify(product);
+      this.root.querySelector('ul').appendChild(item);
+    });
   }
 }
 

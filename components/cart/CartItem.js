@@ -10,19 +10,31 @@ export default class CartItem extends HTMLComponent {
   connectedCallback() {
     this.appendClone('cart-item-template');
 
-    const product = JSON.parse(this.dataset.product);
+    this.product = JSON.parse(this.dataset.product);
 
-    this.root.querySelector('h4').textContent = product.name;
-    this.root.querySelector('span.price').textContent = `${(
-      product.price * product.amount
+    this.heading = this.root.querySelector('h4');
+    this.price = this.root.querySelector('span.price');
+    this.amount = this.root.querySelector('span.amount');
+    this.close = this.root.querySelector('button.close');
+    this.addButton = this.root.querySelector('button.add');
+    this.deleteButton = this.root.querySelector('button.remove');
+
+    this.render();
+  }
+
+  render() {
+    this.heading.textContent = this.product.name;
+    this.price.textContent = `${(
+      this.product.price * this.product.amount
     ).toFixed(2)} €`;
-    this.root.querySelector('span.amount').textContent = `${product.amount} X`;
+    this.amount.textContent = `${this.product.amount} X`;
 
-    this.root.querySelector('button.add').addEventListener('click', () => {
-      addToCart(product);
+    this.addButton.onClick(() => {
+      addToCart(this.product);
     });
-    this.root.querySelector('button.remove').addEventListener('click', () => {
-      removeFromCart(product);
+
+    this.deleteButton.onClick(() => {
+      removeFromCart(this.product);
     });
   }
 }

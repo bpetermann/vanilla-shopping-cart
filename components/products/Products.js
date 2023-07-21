@@ -7,6 +7,8 @@ export default class Products extends HTMLComponent {
   connectedCallback() {
     this.appendClone('products-template');
 
+    this.products = this.root.querySelector('#products');
+
     window.addEventListener('productsChanges', () => {
       this.render();
     });
@@ -34,16 +36,20 @@ export default class Products extends HTMLComponent {
     const filteredproducts = this.filteredProducs();
 
     if (filteredproducts) {
-      this.root.querySelector('#products').innerHTML = '';
-      filteredproducts.map((product) => {
-        const item = document.createElement('product-item');
-        item.dataset.product = JSON.stringify(product);
-        this.root.querySelector('#products').appendChild(item);
-      });
+      this.products.innerHTML = '';
+      this.renderItems(filteredproducts);
     } else {
-      this.root.querySelector('#products').innerHTML =
+      this.products.innerHTML =
         '<img class="loading" src="/images/icons/spinner.gif" alt="...loading" width="24px" height="24px" />';
     }
+  }
+
+  renderItems(filteredproducts) {
+    filteredproducts.map((product) => {
+      const item = document.createElement('product-item');
+      item.dataset.product = JSON.stringify(product);
+      this.products.appendChild(item);
+    });
   }
 }
 

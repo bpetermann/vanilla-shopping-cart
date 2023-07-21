@@ -27,5 +27,5 @@ window.addEventListener('cartChanged', async () => {
     return acc + item.amount;
   }, 0);
   badge.textContent = qty;
-  badge.style = !qty ? 'display:none' : 'display:flex';
+  badge.style.display = !qty ? 'none' : 'flex';
 });

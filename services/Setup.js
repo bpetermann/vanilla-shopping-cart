@@ -16,6 +16,12 @@ const Setup = () => {
     item.onClick((e) => {
       if (e.target.textContent !== app.store.category) {
         app.store.category = e.target.textContent;
+        e.target.classList.add('active');
+        menuBtn.forEach((item) => {
+          if (item.textContent !== app.store.category) {
+            item.classList.remove('active');
+          }
+        });
       }
     })
   );

@@ -481,3 +481,8 @@ footer > div {
 .favorite {
   height: 24px;
 }
+
+.active {
+  background-color: #1a1a1a;
+  color: #fff;
+}
