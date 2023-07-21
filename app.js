@@ -3,10 +3,10 @@ import Setup from './services/Setup.js';
 import Store from './services/Store.js';
 
 // Components
-import Cart from './components/Cart.js';
-import Products from './components/Products.js';
-import ProductItem from './components/ProductItem.js';
-import CartItem from './components/CartItem.js';
+import Cart from './components/cart/Cart.js';
+import Products from './components/products/Products.js';
+import ProductItem from './components/products/ProductItem.js';
+import CartItem from './components/cart/CartItem.js';
 
 HTMLElement.prototype.onClick = function (a, b) {
   this.addEventListener('click', a, b);

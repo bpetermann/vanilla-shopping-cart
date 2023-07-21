@@ -1,22 +1,11 @@
-export default class Cart extends HTMLElement {
+import HTMLComponent from '../HTMLComponent.js';
+
+export default class Cart extends HTMLComponent {
   constructor() {
-    super();
-    this.root = this.attachShadow({ mode: 'open' });
-
-    const styles = document.createElement('style');
-    this.root.appendChild(styles);
-
-    async function loadCSS() {
-      const request = await fetch('./components/Cart.css');
-      const css = await request.text();
-      styles.textContent = css;
-    }
-    loadCSS();
+    super('./components/cart/Cart.css');
   }
   connectedCallback() {
-    const template = document.getElementById('cart-template');
-    const content = template.content.cloneNode(true);
-    this.root.appendChild(content);
+    this.appendClone('cart-template');
 
     this.root.querySelector('button.close').addEventListener('click', () => {
       const main = document.querySelector('main');

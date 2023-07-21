@@ -1,22 +1,11 @@
-export default class Products extends HTMLElement {
+import HTMLComponent from '../HTMLComponent.js';
+
+export default class Products extends HTMLComponent {
   constructor() {
-    super();
-    this.root = this.attachShadow({ mode: 'open' });
-
-    const styles = document.createElement('style');
-    this.root.appendChild(styles);
-
-    async function loadCSS() {
-      const request = await fetch('./components/Products.css');
-      const css = await request.text();
-      styles.textContent = css;
-    }
-    loadCSS();
+    super('./components/products/Products.css');
   }
   connectedCallback() {
-    const template = document.getElementById('products-template');
-    const content = template.content.cloneNode(true);
-    this.root.appendChild(content);
+    this.appendClone('products-template');
 
     window.addEventListener('productsChanges', () => {
       this.render();
