@@ -37,6 +37,5 @@ export const removeFromCart = (product) => {
     app.store.cart = app.store.cart.filter(
       (item) => item.name !== product.name
     );
-    console.log(app.store.cart)
   }
 };

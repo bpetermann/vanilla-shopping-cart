@@ -2,6 +2,7 @@ import loadData from './services/Products.js';
 import Setup from './services/Setup.js';
 import Store from './services/Store.js';
 
+// Components
 import Cart from './components/Cart.js';
 import Products from './components/Products.js';
 import ProductItem from './components/ProductItem.js';

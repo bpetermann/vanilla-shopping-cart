@@ -25,17 +25,31 @@ export default class Products extends HTMLElement {
     window.addEventListener('categoryChanged', () => {
       this.render();
     });
+
+    window.addEventListener('searchChanged', () => {
+      this.render();
+    });
+  }
+
+  filteredProducs() {
+    return app.store.products.filter(
+      (item) =>
+        item.description
+          .toLowerCase()
+          .includes(app.store.search.toLowerCase()) &&
+        item.category.includes(app.store.category)
+    );
   }
 
   render() {
-    if (app.store.products) {
+    const filteredproducts = this.filteredProducs();
+
+    if (filteredproducts) {
       this.root.querySelector('#products').innerHTML = '';
-      app.store.products.map((product) => {
-        if (product.category.includes(app.store.category)) {
-          const item = document.createElement('product-item');
-          item.dataset.product = JSON.stringify(product);
-          this.root.querySelector('#products').appendChild(item);
-        }
+      filteredproducts.map((product) => {
+        const item = document.createElement('product-item');
+        item.dataset.product = JSON.stringify(product);
+        this.root.querySelector('#products').appendChild(item);
       });
     } else {
       this.root.querySelector('#products').innerHTML =

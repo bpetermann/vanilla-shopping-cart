@@ -1,6 +1,7 @@
 const Store = {
   products: null,
   category: 'Shoes',
+  search: '',
   cart: [],
 };
 
@@ -12,6 +13,9 @@ const proxiedStore = new Proxy(Store, {
     }
     if (property === 'category') {
       window.dispatchEvent(new Event('categoryChanged'));
+    }
+    if (property === 'search') {
+      window.dispatchEvent(new Event('searchChanged'));
     }
     if (property === 'cart') {
       window.dispatchEvent(new Event('cartChanged'));

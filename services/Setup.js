@@ -1,21 +1,28 @@
 const Setup = () => {
-    const main = document.querySelector('main');
-    const openBtn = document.getElementById('open-cart');
-    const menutBtn = document.querySelectorAll('button.menu-button');
+  const main = document.querySelector('main');
+  const cartOpen = document.querySelector('#open-cart');
+  const searchInput = document.querySelector('#searchbar-text');
+  const menuBtn = document.querySelectorAll('button.menu-button');
 
-    const products = document.createElement('products-element');
-    main.insertBefore(products, main.childNodes[4]);
+  const products = document.createElement('products-element');
+  main.insertBefore(products, main.childNodes[4]);
 
-    openBtn.onClick(() => {
-      const cart = document.createElement('cart-modal');
-      main.appendChild(cart);
-    });
+  cartOpen.onClick(() => {
+    const cart = document.createElement('cart-modal');
+    main.appendChild(cart);
+  });
 
-    menutBtn.forEach((item) =>
-      item.onClick((e) => {
+  menuBtn.forEach((item) =>
+    item.onClick((e) => {
+      if (e.target.textContent !== app.store.category) {
         app.store.category = e.target.textContent;
-      })
-    );
-    };
+      }
+    })
+  );
+
+  searchInput.addEventListener('change', (e) => {
+    app.store.search = e.target.value;
+  });
+};
 
 export default Setup;

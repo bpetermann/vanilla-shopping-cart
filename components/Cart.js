@@ -54,7 +54,6 @@ export default class Cart extends HTMLElement {
 
   render() {
     if (app.store.cart) {
-      console.log(app.store.cart);
       this.root.querySelector('ul').innerHTML = '';
 
       app.store.cart.map((product) => {
