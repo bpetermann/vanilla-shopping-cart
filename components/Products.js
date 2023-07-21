@@ -1,4 +1,4 @@
-export class Products extends HTMLElement {
+export default class Products extends HTMLElement {
   constructor() {
     super();
     this.root = this.attachShadow({ mode: 'open' });

@@ -1,4 +1,4 @@
-export class Cart extends HTMLElement {
+export default class Cart extends HTMLElement {
   constructor() {
     super();
     this.root = this.attachShadow({ mode: 'open' });
