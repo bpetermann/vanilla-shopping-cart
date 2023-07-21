@@ -54,8 +54,10 @@ export class Cart extends HTMLElement {
 
   render() {
     if (app.store.cart) {
+      console.log(app.store.cart);
+      this.root.querySelector('ul').innerHTML = '';
+
       app.store.cart.map((product) => {
-        this.root.querySelector('ul').innerHTML = '';
         const item = document.createElement('cart-item');
         item.dataset.product = JSON.stringify(product);
         this.root.querySelector('ul').appendChild(item);

@@ -1,4 +1,5 @@
 import { addToCart } from '../services/Order.js';
+import { removeFromCart } from '../services/Order.js';
 
 export default class CartItem extends HTMLElement {
   constructor() {
@@ -30,11 +31,12 @@ export default class CartItem extends HTMLElement {
       product.price * product.amount
     ).toFixed(2)} €`;
     this.root.querySelector('span.amount').textContent = `${product.amount} X`;
+
     this.root.querySelector('button.add').addEventListener('click', () => {
       addToCart(product);
     });
     this.root.querySelector('button.remove').addEventListener('click', () => {
-      addToCart(product);
+      removeFromCart(product);
     });
   }
 }
