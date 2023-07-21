@@ -1,0 +1,51 @@
+li {
+  width: 100%;
+  padding-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #d0d1d3;
+}
+
+li > div:first-child {
+  width: 50%;
+}
+
+li > div > h4 {
+  text-align: left;
+}
+
+li > div > div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 8px;
+}
+
+li > div:last-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+li > div > button {
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  outline: none;
+  border: 1px solid #000;
+  font-size: 16px;
+}
+
+li > div > button:hover {
+  border: 2px solid #000;
+  opacity: 0.8;
+}
+
+.cart-total {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,30 @@
+div:first-of-type {
+  display: flex;
+  justify-content: center;
+  background-color: var(--colorSecondary);
+}
+
+div:first-of-type > div {
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1216px;
+  padding: 0 8px;
+}
+
+div > div > ul {
+  all: unset;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 32px;
+  width: 100%;
+  padding: 24px 0px;
+}
+
+li {
+  list-style: none;
+}

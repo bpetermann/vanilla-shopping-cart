@@ -1,0 +1,86 @@
+#backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  animation: fadeIn 0.3s ease-in-out;
+  z-index: 10;
+}
+
+#cart {
+  all: unset;
+  position: fixed;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+  left: 30%;
+  top: 15%;
+  width: 40%;
+  background-color: #fff;
+  overflow: scroll;
+  z-index: 10;
+}
+
+#cart > div {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#cart > div > button:last-of-type {
+  margin-top: 32px;
+  width: 100%;
+  max-width: 220px;
+  background-color: #ff6900;
+  color: #fff;
+  font-size: 16px;
+  padding: 12px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+#cart > div > div:first-of-type {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+}
+
+ul {
+  width: 100%;
+  max-width: 300px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.cart-total {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  #cart {
+    left: 5%;
+    width: 90%;
+  }
+}
+
+.icon-button {
+  all: unset;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.icon-button > img {
+  height: 100%;
+  width: auto;
+  margin-left: 8px;
+}
+
+.close {
+  height: 18px;
+}

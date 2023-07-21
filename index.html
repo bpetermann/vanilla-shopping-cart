@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/js.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla Cart</title>
+    <title>Shopping Cart</title>
 
     <script src="app.js" defer type="module"></script>
     <link rel="stylesheet" href="styles.css" />
@@ -27,7 +28,7 @@
 
           <div id="logo">
             <div>
-              <img src="/images/icons/js.png" class="logo js" alt="js Logo" />
+              <img src="/js.svg" class="logo js" alt="js Logo" />
             </div>
             <h3>shopping cart</h3>
           </div>
@@ -70,63 +71,27 @@
         </div>
       </div>
       <!-- Products -->
-      <div id="products">
+      <template id="products-template">
         <div>
-          <ul>
-            <li>
-              <div id="product">
-                <div class="product-image">
-                  <img
-                    src="/images/products/Sandals.webp"
-                    alt="brogues image"
-                    title="brogues image"
-                  />
-                  <button class="product-favorite">
-                    <img src="/images/icons/favorite.png" alt="favorite" />
-                  </button>
-                </div>
-                <p>Maroon sandals</p>
-                <p>24.99 $</p>
-                <button>Add to Cart</button>
-              </div>
-            </li>
-            <li>
-              <div id="product">
-                <div class="product-image">
-                  <img
-                    src="/images/products/Brogues.webp"
-                    alt="brogues image"
-                    title="brogues image"
-                  />
-                  <button class="product-favorite">
-                    <img src="/images/icons/favorite.png" alt="favorite" />
-                  </button>
-                </div>
-                <p>Green wingtip brogues</p>
-                <p>85.99 $</p>
-                <button>Add to Cart</button>
-              </div>
-            </li>
-            <li>
-              <div id="product">
-                <div class="product-image">
-                  <img
-                    src="/images/products/Sneakers.webp"
-                    alt="brogues image"
-                    title="brogues image"
-                  />
-                  <button class="product-favorite">
-                    <img src="/images/icons/favorite.png" alt="favorite" />
-                  </button>
-                </div>
-                <p>Multi-coloured Sneakers</p>
-                <p>69.99 $</p>
-                <button>Add to Cart</button>
-              </div>
-            </li>
-          </ul>
+          <div>
+            <ul id="products"></ul>
+          </div>
         </div>
-      </div>
+      </template>
+      <!-- ProductsItem -->
+      <template id="product-item-template">
+        <article>
+          <div>
+            <img />
+            <button>
+              <img src="/images/icons/favorite.png" alt="favorite" />
+            </button>
+          </div>
+          <p></p>
+          <p class="price"></p>
+          <button class="add">Add to Cart</button>
+        </article>
+      </template>
       <!-- Newsletter -->
       <div id="newsletter">
         <div>
@@ -166,41 +131,43 @@
           </form>
         </div>
       </div>
-      <!-- Cart -->
-      <div id="modal" hidden>
-        <div id="backdrop"></div>
-        <div id="cart">
+    </main>
+    <!-- Cart -->
+    <template id="cart-template">
+      <div id="backdrop"></div>
+      <div id="cart">
+        <div>
           <div>
-            <div>
-              <button class="icon-button close" id="close-cart">
-                <img src="/images/icons/close.png" alt="close" />
-              </button>
-            </div>
-            <h3>Cart (3)</h3>
-            <ul class="cart-list">
-              <li class="cart-item">
-                <div>
-                  <h4>Brogues</h4>
-                  <div>
-                    <span>85.99 $</span>
-                    <span>1X</span>
-                  </div>
-                </div>
-                <div>
-                  <button>+</button>
-                  <button>-</button>
-                </div>
-              </li>
-            </ul>
-            <div class="cart-total">
-              <span>Total Amount</span>
-              <span>140 $</span>
-            </div>
-            <button>Order</button>
+            <button class="icon-button close" id="close-cart">
+              <img src="/images/icons/close.png" alt="close" />
+            </button>
           </div>
+          <h3></h3>
+          <ul></ul>
+          <div class="cart-total">
+            <span>Total Amount</span>
+            <span class="total"></span>
+          </div>
+          <button>Order</button>
         </div>
       </div>
-    </main>
+    </template>
+    <!-- CartItem -->
+    <template id="cart-item-template">
+      <li>
+        <div>
+          <h4></h4>
+          <div>
+            <span class="price"></span>
+            <span class="amount"></span>
+          </div>
+        </div>
+        <div>
+          <button class="add">+</button>
+          <button class="remove">-</button>
+        </div>
+      </li>
+    </template>
     <!-- Footer -->
     <footer>
       <div>
