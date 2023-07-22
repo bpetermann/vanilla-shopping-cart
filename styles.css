@@ -84,13 +84,18 @@ h3 {
   position: relative;
 }
 
-#badge {
+#open-favs {
+  position: relative;
+}
+
+#cart-badge,
+#fav-badge {
   align-items: center;
   justify-content: center;
   width: 18px;
   height: 18px;
   position: absolute;
-  top: -8px;
+  top: -6px;
   right: 8px;
   border-radius: 50%;
   background-color: #ff6900;
@@ -98,6 +103,11 @@ h3 {
   font-weight: 600;
   color: #fff;
   display: none;
+}
+
+#fav-badge {
+  top: -6px;
+  right: -8px;
 }
 
 @media (max-width: 768px) {

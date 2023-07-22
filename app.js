@@ -23,10 +23,17 @@ window.addEventListener('DOMContentLoaded', async () => {
 });
 
 window.addEventListener('cartChanged', async () => {
-  const badge = document.getElementById('badge');
+  const badge = document.getElementById('cart-badge');
   const qty = app.store.cart.reduce(function (acc, item) {
     return acc + item.amount;
   }, 0);
+  badge.textContent = qty;
+  badge.style.display = !qty ? 'none' : 'flex';
+});
+
+window.addEventListener('favoritesChanged', async () => {
+  const badge = document.getElementById('fav-badge');
+  const qty = app.store.favorites.length;
   badge.textContent = qty;
   badge.style.display = !qty ? 'none' : 'flex';
 });

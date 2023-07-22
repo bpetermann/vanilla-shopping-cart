@@ -24,11 +24,9 @@ export default class ProductItem extends HTMLComponent {
       const isFavorite = app.store.favorites.find(
         ({ id }) => id === this.product.id
       );
-      if (isFavorite) {
-        this.favorite.classList.add('liked');
-      } else {
-        this.favorite.classList.remove('liked');
-      }
+      isFavorite
+        ? this.favorite.classList.add('liked')
+        : this.favorite.classList.remove('liked');
     });
   }
 
@@ -36,6 +34,10 @@ export default class ProductItem extends HTMLComponent {
     this.description.textContent = this.product.description;
     this.price.textContent = `${this.product.price} €`;
     this.image.src = `images/products/${this.product.name}.webp`;
+    this.addEventHandlers();
+  }
+
+  addEventHandlers() {
     this.add.onClick(() => {
       this.addProduct();
     });
