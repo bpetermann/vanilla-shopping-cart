@@ -1,5 +1,6 @@
 import HTMLComponent from '../HTMLComponent.js';
-import { addToCart } from '../../services/Order.js';
+import { addToCart } from '../../services/Cart.js';
+import { toggleFavorite } from '../../services/Favorites.js';
 
 export default class ProductItem extends HTMLComponent {
   constructor() {
@@ -15,6 +16,7 @@ export default class ProductItem extends HTMLComponent {
     this.price = this.root.querySelector('p.price');
     this.image = this.root.querySelector('img');
     this.add = this.root.querySelector('button.add');
+    this.favorite = this.root.querySelector('button.favorite');
 
     this.render();
   }
@@ -25,6 +27,17 @@ export default class ProductItem extends HTMLComponent {
     this.image.src = `images/products/${this.product.name}.webp`;
     this.add.onClick(() => {
       this.addProduct();
+    });
+    this.favorite.onClick(() => {
+      toggleFavorite(this.product);
+      const isFavorite = app.store.favorites.find(
+        ({ id }) => id === this.product.id
+      );
+      if (isFavorite) {
+        this.favorite.classList.add('liked');
+      } else {
+        this.favorite.classList.remove('liked');
+      }
     });
   }
 

@@ -5,6 +5,7 @@ const Setup = () => {
   const infoClose = document.querySelector('button.icon-button');
   const info = document.querySelector('#info-bar');
   const menuBtn = document.querySelectorAll('button.menu-button');
+  const openFavs = document.querySelector('#open-favs');
 
   const products = document.createElement('products-element');
   main.insertBefore(products, main.childNodes[4]);
@@ -12,6 +13,11 @@ const Setup = () => {
   cartOpen.onClick(() => {
     const cart = document.createElement('cart-modal');
     main.appendChild(cart);
+  });
+
+  openFavs.onClick(() => {
+    const modal = document.createElement('favorites-modal');
+    main.appendChild(modal);
   });
 
   menuBtn.forEach((item) =>

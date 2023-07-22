@@ -7,6 +7,7 @@ import Cart from './components/cart/Cart.js';
 import Products from './components/products/Products.js';
 import ProductItem from './components/products/ProductItem.js';
 import CartItem from './components/cart/CartItem.js';
+import Favorites from './components/favorites/Favorites.js';
 
 HTMLElement.prototype.onClick = function (a, b) {
   this.addEventListener('click', a, b);

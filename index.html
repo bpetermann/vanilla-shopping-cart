@@ -34,7 +34,7 @@
           </div>
 
           <nav>
-            <button class="icon-button favorite">
+            <button id="open-favs" class="icon-button favorite">
               <img src="/images/icons/favorite.png" alt="close" />
             </button>
             <button id="open-cart" class="icon-button cart">
@@ -84,7 +84,7 @@
         <article>
           <div>
             <img />
-            <button>
+            <button class="favorite">
               <img src="/images/icons/favorite.png" alt="favorite" />
             </button>
           </div>
@@ -168,6 +168,19 @@
           <button class="remove">-</button>
         </div>
       </li>
+    </template>
+    <!-- Favorites -->
+    <template id="favorites-template">
+      <div id="backdrop"></div>
+      <div id="favorites">
+        <div>
+          <button class="close">
+            <img src="/images/icons/close.png" alt="close" />
+          </button>
+          <h3>Favorites</h3>
+          <ul></ul>
+        </div>
+      </div>
     </template>
     <!-- Footer -->
     <footer>

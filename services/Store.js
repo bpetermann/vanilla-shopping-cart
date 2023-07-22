@@ -3,13 +3,14 @@ const Store = {
   category: 'Shoes',
   search: '',
   cart: [],
+  favorites: [],
 };
 
 const proxiedStore = new Proxy(Store, {
   set(target, property, value) {
     target[property] = value;
     if (property === 'products') {
-      window.dispatchEvent(new Event('productsChanges'));
+      window.dispatchEvent(new Event('productsChanged'));
     }
     if (property === 'category') {
       window.dispatchEvent(new Event('categoryChanged'));
@@ -19,6 +20,9 @@ const proxiedStore = new Proxy(Store, {
     }
     if (property === 'cart') {
       window.dispatchEvent(new Event('cartChanged'));
+    }
+    if (property === 'favorites') {
+      window.dispatchEvent(new Event('favoritesChanged'));
     }
     return true;
   },

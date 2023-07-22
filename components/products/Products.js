@@ -9,7 +9,7 @@ export default class Products extends HTMLComponent {
 
     this.products = this.root.querySelector('#products');
 
-    window.addEventListener('productsChanges', () => {
+    window.addEventListener('productsChanged', () => {
       this.render();
     });
 

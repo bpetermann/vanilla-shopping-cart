@@ -60,3 +60,8 @@ div > button > img {
   border-color: #00a984;
   color: #fff;
 }
+
+.liked > img {
+  filter: invert(40%) sepia(96%) saturate(1660%) hue-rotate(1deg)
+    brightness(103%) contrast(105%);
+}
