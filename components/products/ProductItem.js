@@ -19,6 +19,17 @@ export default class ProductItem extends HTMLComponent {
     this.favorite = this.root.querySelector('button.favorite');
 
     this.render();
+
+    window.addEventListener('favoritesChanged', () => {
+      const isFavorite = app.store.favorites.find(
+        ({ id }) => id === this.product.id
+      );
+      if (isFavorite) {
+        this.favorite.classList.add('liked');
+      } else {
+        this.favorite.classList.remove('liked');
+      }
+    });
   }
 
   render() {
@@ -30,14 +41,6 @@ export default class ProductItem extends HTMLComponent {
     });
     this.favorite.onClick(() => {
       toggleFavorite(this.product);
-      const isFavorite = app.store.favorites.find(
-        ({ id }) => id === this.product.id
-      );
-      if (isFavorite) {
-        this.favorite.classList.add('liked');
-      } else {
-        this.favorite.classList.remove('liked');
-      }
     });
   }
 

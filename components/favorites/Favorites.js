@@ -7,10 +7,15 @@ export default class Favorites extends HTMLComponent {
   connectedCallback() {
     this.appendClone('favorites-template');
 
+    this.list = this.root.querySelector('ul');
     this.close = this.root.querySelector('button.close');
 
     this.closeHandler();
     this.render();
+
+    window.addEventListener('favoritesChanged', () => {
+      this.render();
+    });
   }
 
   closeHandler() {
@@ -20,7 +25,15 @@ export default class Favorites extends HTMLComponent {
     });
   }
 
-  render() {}
+  render() {
+    this.list.innerHTML = '';
+
+    app.store.favorites.map((product) => {
+      const item = document.createElement('product-item');
+      item.dataset.product = JSON.stringify(product);
+      this.list.appendChild(item);
+    });
+  }
 }
 
 customElements.define('favorites-modal', Favorites);
