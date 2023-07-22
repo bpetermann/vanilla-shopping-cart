@@ -57,5 +57,6 @@ div > button > img {
 
 .added {
   background-color: #00a984;
+  border-color: #00a984;
   color: #fff;
 }

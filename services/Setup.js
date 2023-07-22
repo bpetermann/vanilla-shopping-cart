@@ -2,6 +2,8 @@ const Setup = () => {
   const main = document.querySelector('main');
   const cartOpen = document.querySelector('#open-cart');
   const searchInput = document.querySelector('#searchbar-text');
+  const infoClose = document.querySelector('button.icon-button');
+  const info = document.querySelector('#info-bar');
   const menuBtn = document.querySelectorAll('button.menu-button');
 
   const products = document.createElement('products-element');
@@ -28,6 +30,10 @@ const Setup = () => {
 
   searchInput.addEventListener('change', (e) => {
     app.store.search = e.target.value;
+  });
+
+  infoClose.onClick(() => {
+    info.remove();
   });
 };
 

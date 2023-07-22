@@ -61,7 +61,7 @@ export default class Cart extends HTMLComponent {
     app.store.cart.map((product) => {
       const item = document.createElement('cart-item');
       item.dataset.product = JSON.stringify(product);
-      this.root.querySelector('ul').appendChild(item);
+      this.list.appendChild(item);
     });
   }
 }
