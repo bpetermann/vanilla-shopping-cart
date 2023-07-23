@@ -170,12 +170,39 @@ input {
   padding-left: 16px;
 }
 
+.category-mobile {
+  display: none;
+}
+
+.mobile {
+  background-color: #fff;
+  color: #7a7a7a;
+  border-bottom: 1px solid #d0d1d3;
+  border-right: 1px solid #d0d1d3;
+}
+
+.mobile:hover {
+  color: #000;
+  background-color: #d0d1d3;
+  border-bottom: 1px solid #d0d1d3;
+  border-right: 1px solid #d0d1d3;
+}
+
 @media (max-width: 768px) {
   #searchbar {
     display: flex;
     justify-content: center;
     border-top: 1px solid #d0d1d3;
     border-bottom: 1px solid #d0d1d3;
+  }
+
+  .category-mobile {
+    background-color: var(--colorPrimary);
+    display: flex;
+  }
+
+  .hide {
+    display: none;
   }
 }
 
@@ -492,5 +519,14 @@ footer > div {
 
 .active {
   background-color: #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+  border-right: 1px solid #1a1a1a;
+  color: #fff;
+}
+
+.active:hover {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+  border-right: 1px solid #1a1a1a;
   color: #fff;
 }

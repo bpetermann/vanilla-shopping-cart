@@ -13,6 +13,8 @@ const Setup = {
     this.info = document.querySelector('#info-bar');
     this.menuBtn = document.querySelectorAll('button.menu-button');
     this.favOpen = document.querySelector('#open-favs');
+    this.searchbarBtn = document.querySelector('.burger-button');
+    this.categoryMobile = document.querySelector('.category-mobile');
   },
 
   render() {
@@ -35,11 +37,11 @@ const Setup = {
       item.onClick((e) => {
         if (e.target.textContent !== app.store.category) {
           app.store.category = e.target.textContent;
-          e.target.classList.add('active');
+
           this.menuBtn.forEach((item) => {
-            if (item.textContent !== app.store.category) {
-              item.classList.remove('active');
-            }
+            item.textContent !== app.store.category
+              ? item.classList.remove('active')
+              : item.classList.add('active');
           });
         }
       })
@@ -51,6 +53,12 @@ const Setup = {
 
     this.search.addEventListener('change', (e) => {
       app.store.search = e.target.value;
+    });
+
+    this.searchbarBtn.onClick(() => {
+      this.categoryMobile.classList.contains('hide')
+        ? this.categoryMobile.classList.remove('hide')
+        : this.categoryMobile.classList.add('hide');
     });
   },
 };
