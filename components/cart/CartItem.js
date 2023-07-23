@@ -3,7 +3,7 @@ import { addToCart, removeFromCart } from '../../services/Cart.js';
 
 export default class CartItem extends HTMLComponent {
   constructor() {
-    super('./components/cart/CartItem.css');
+    super('cart/CartItem.css');
   }
 
   connectedCallback() {

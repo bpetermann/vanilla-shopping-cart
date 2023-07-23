@@ -8,7 +8,7 @@ export default class HTMLComponent extends HTMLElement {
     this.root.appendChild(styles);
 
     async function loadCSS() {
-      const request = await fetch(path);
+      const request = await fetch(`./components/${path}`);
       const css = await request.text();
       styles.textContent = css;
     }

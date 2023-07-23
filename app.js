@@ -1,11 +1,12 @@
+import { badgeHelper } from './services/Helper.js';
 import loadData from './services/Products.js';
 import Setup from './services/Setup.js';
 import Store from './services/Store.js';
 
 // Components
-import Cart from './components/cart/Cart.js';
 import Products from './components/products/Products.js';
 import ProductItem from './components/products/ProductItem.js';
+import Cart from './components/cart/Cart.js';
 import CartItem from './components/cart/CartItem.js';
 import Favorites from './components/favorites/Favorites.js';
 
@@ -18,22 +19,14 @@ app.store = Store;
 app.setup = Setup;
 
 window.addEventListener('DOMContentLoaded', async () => {
-  app.setup();
+  app.setup.start();
   app.store.products = await loadData();
 });
 
-window.addEventListener('cartChanged', async () => {
-  const badge = document.getElementById('cart-badge');
-  const qty = app.store.cart.reduce(function (acc, item) {
-    return acc + item.amount;
-  }, 0);
-  badge.textContent = qty;
-  badge.style.display = !qty ? 'none' : 'flex';
+window.addEventListener('cartChanged', () => {
+  badgeHelper('cart-badge');
 });
 
-window.addEventListener('favoritesChanged', async () => {
-  const badge = document.getElementById('fav-badge');
-  const qty = app.store.favorites.length;
-  badge.textContent = qty;
-  badge.style.display = !qty ? 'none' : 'flex';
+window.addEventListener('favoritesChanged', () => {
+  badgeHelper('fav-badge');
 });

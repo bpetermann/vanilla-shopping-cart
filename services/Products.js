@@ -1,4 +1,4 @@
-import API from './API.js';
+import API from './Api.js';
 
 const loadData = async () => {
  return await API.getProducts();

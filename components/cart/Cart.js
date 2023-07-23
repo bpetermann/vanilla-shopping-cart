@@ -2,7 +2,7 @@ import HTMLComponent from '../HTMLComponent.js';
 
 export default class Cart extends HTMLComponent {
   constructor() {
-    super('./components/cart/Cart.css');
+    super('cart/Cart.css');
   }
   connectedCallback() {
     this.appendClone('cart-template');

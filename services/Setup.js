@@ -1,46 +1,58 @@
-const Setup = () => {
-  const main = document.querySelector('main');
-  const cartOpen = document.querySelector('#open-cart');
-  const searchInput = document.querySelector('#searchbar-text');
-  const infoClose = document.querySelector('button.icon-button');
-  const info = document.querySelector('#info-bar');
-  const menuBtn = document.querySelectorAll('button.menu-button');
-  const openFavs = document.querySelector('#open-favs');
+const Setup = {
+  start() {
+    this.select();
+    this.render();
+    this.addHandler();
+  },
 
-  const products = document.createElement('products-element');
-  main.insertBefore(products, main.childNodes[4]);
+  select() {
+    this.main = document.querySelector('main');
+    this.cartOpen = document.querySelector('#open-cart');
+    this.search = document.querySelector('#searchbar-text');
+    this.infoClose = document.querySelector('button.icon-button');
+    this.info = document.querySelector('#info-bar');
+    this.menuBtn = document.querySelectorAll('button.menu-button');
+    this.favOpen = document.querySelector('#open-favs');
+  },
 
-  cartOpen.onClick(() => {
-    const cart = document.createElement('cart-modal');
-    main.appendChild(cart);
-  });
+  render() {
+    const products = document.createElement('products-element');
+    this.main.insertBefore(products, this.main.childNodes[4]);
 
-  openFavs.onClick(() => {
-    const modal = document.createElement('favorites-modal');
-    main.appendChild(modal);
-  });
+    this.cartOpen.onClick(() => {
+      const cart = document.createElement('cart-modal');
+      this.main.appendChild(cart);
+    });
 
-  menuBtn.forEach((item) =>
-    item.onClick((e) => {
-      if (e.target.textContent !== app.store.category) {
-        app.store.category = e.target.textContent;
-        e.target.classList.add('active');
-        menuBtn.forEach((item) => {
-          if (item.textContent !== app.store.category) {
-            item.classList.remove('active');
-          }
-        });
-      }
-    })
-  );
+    this.favOpen.onClick(() => {
+      const modal = document.createElement('favorites-modal');
+      this.main.appendChild(modal);
+    });
+  },
 
-  searchInput.addEventListener('change', (e) => {
-    app.store.search = e.target.value;
-  });
+  addHandler() {
+    this.menuBtn.forEach((item) =>
+      item.onClick((e) => {
+        if (e.target.textContent !== app.store.category) {
+          app.store.category = e.target.textContent;
+          e.target.classList.add('active');
+          this.menuBtn.forEach((item) => {
+            if (item.textContent !== app.store.category) {
+              item.classList.remove('active');
+            }
+          });
+        }
+      })
+    );
 
-  infoClose.onClick(() => {
-    info.remove();
-  });
+    this.infoClose.onClick(() => {
+      this.info.remove();
+    });
+
+    this.search.addEventListener('change', (e) => {
+      app.store.search = e.target.value;
+    });
+  },
 };
 
 export default Setup;

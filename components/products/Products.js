@@ -2,24 +2,18 @@ import HTMLComponent from '../HTMLComponent.js';
 
 export default class Products extends HTMLComponent {
   constructor() {
-    super('./components/products/Products.css');
+    super('products/Products.css');
   }
   connectedCallback() {
     this.appendClone('products-template');
 
     this.products = this.root.querySelector('#products');
 
-    window.addEventListener('productsChanged', () => {
-      this.render();
-    });
-
-    window.addEventListener('categoryChanged', () => {
-      this.render();
-    });
-
-    window.addEventListener('searchChanged', () => {
-      this.render();
-    });
+    ['productsChanged', 'categoryChanged', 'searchChanged'].map((e) =>
+      window.addEventListener(e, () => {
+        this.render();
+      })
+    );
   }
 
   filteredProducs() {

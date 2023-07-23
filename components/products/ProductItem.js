@@ -4,7 +4,7 @@ import { toggleFavorite } from '../../services/Favorites.js';
 
 export default class ProductItem extends HTMLComponent {
   constructor() {
-    super('./components/products/ProductItem.css');
+    super('products/ProductItem.css');
   }
 
   connectedCallback() {
@@ -21,12 +21,7 @@ export default class ProductItem extends HTMLComponent {
     this.render();
 
     window.addEventListener('favoritesChanged', () => {
-      const isFavorite = app.store.favorites.find(
-        ({ id }) => id === this.product.id
-      );
-      isFavorite
-        ? this.favorite.classList.add('liked')
-        : this.favorite.classList.remove('liked');
+      this.favoriteClassList();
     });
   }
 
@@ -34,7 +29,17 @@ export default class ProductItem extends HTMLComponent {
     this.description.textContent = this.product.description;
     this.price.textContent = `${this.product.price} €`;
     this.image.src = `images/products/${this.product.name}.webp`;
+    this.favoriteClassList();
     this.addEventHandlers();
+  }
+
+  favoriteClassList() {
+    const isFavorite = app.store.favorites.find(
+      ({ id }) => id === this.product.id
+    );
+    isFavorite
+      ? this.favorite.classList.add('liked')
+      : this.favorite.classList.remove('liked');
   }
 
   addEventHandlers() {

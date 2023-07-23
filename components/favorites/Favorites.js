@@ -2,7 +2,7 @@ import HTMLComponent from '../HTMLComponent.js';
 
 export default class Favorites extends HTMLComponent {
   constructor() {
-    super('./components/favorites/Favorites.css');
+    super('favorites/Favorites.css');
   }
   connectedCallback() {
     this.appendClone('favorites-template');
