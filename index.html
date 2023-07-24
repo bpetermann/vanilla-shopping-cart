@@ -52,7 +52,7 @@
           <span></span>
           <span></span>
         </button>
-        <input type="text" id="searchbar-text" placeholder='Search'/>
+        <input type="text" id="searchbar-text" placeholder="Search" />
       </div>
       <div class="category-mobile">
         <button class="menu-button mobile active">Shoes</button>
@@ -99,44 +99,50 @@
         </article>
       </template>
       <!-- Newsletter -->
-      <div id="newsletter">
-        <div>
-          <div class="newsletter-heading">
-            <h2>JOIN OUR NEWSLETTER!</h2>
-            <p>Keep up to date</p>
+      <template id="newsletter-template">
+        <div id="newsletter">
+          <div>
+            <div>
+              <h2>JOIN OUR NEWSLETTER!</h2>
+              <p>Keep up to date</p>
+            </div>
+            <form>
+              <input placeholder="Your Email" name="email" />
+              <p>I am mostly interested in</p>
+              <div class="radio">
+                <input
+                  type="radio"
+                  id="wfashion"
+                  name="interestedIn"
+                  value="wfashion"
+                />
+                <label for="wfashion"> Women's Fashion</label>
+              </div>
+              <div class="radio">
+                <input
+                  type="radio"
+                  id="mfashion"
+                  name="interestedIn"
+                  value="mfashion"
+                />
+                <label for="mfashion"> Men's Fashion</label>
+              </div>
+              <button type="submit">
+                <img
+                  src="/images/icons/mail.png"
+                  alt="main icon"
+                  class="icon"
+                />
+                Add my Email
+              </button>
+              <p>
+                You can unsubscribe at any time free of charge. Just a demo, no
+                emails are stored
+              </p>
+            </form>
           </div>
-          <form class="newsletter-form">
-            <input placeholder="Your Email" />
-            <p>I am mostly interested in</p>
-            <div class="radio">
-              <input
-                type="radio"
-                id="wfashion"
-                name="fav_language"
-                value="wfashion"
-              />
-              <label for="wfashion"> Women's Fashion</label>
-            </div>
-            <div class="radio">
-              <input
-                type="radio"
-                id="mfashion"
-                name="fav_language"
-                value="mfashion"
-              />
-              <label for="mfashion"> Men's Fashion</label>
-            </div>
-            <button>
-              <img src="/images/icons/mail.png" alt="main icon" class="icon" />
-              Add my Email
-            </button>
-            <p>
-              You can unsubscribe at any time free of charge. Just a demo, no
-              emails are stored
-            </p>
-          </form>
         </div>
-      </div>
+      </template>
     </main>
     <!-- Cart -->
     <template id="cart-template">

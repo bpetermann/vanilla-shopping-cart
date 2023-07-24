@@ -19,7 +19,16 @@ const Setup = {
 
   render() {
     const products = document.createElement('products-element');
-    this.main.insertBefore(products, this.main.childNodes[4]);
+    this.main.append(products);
+
+    const newletter = document.createElement('newsletter-element');
+    this.main.append(newletter);
+  },
+
+  addHandler() {
+    this.infoClose.onClick(() => {
+      this.info.remove();
+    });
 
     this.cartOpen.onClick(() => {
       const cart = document.createElement('cart-modal');
@@ -30,9 +39,7 @@ const Setup = {
       const modal = document.createElement('favorites-modal');
       this.main.appendChild(modal);
     });
-  },
 
-  addHandler() {
     this.menuBtn.forEach((item) =>
       item.onClick((e) => {
         if (e.target.textContent !== app.store.category) {
@@ -46,10 +53,6 @@ const Setup = {
         }
       })
     );
-
-    this.infoClose.onClick(() => {
-      this.info.remove();
-    });
 
     this.search.addEventListener('change', (e) => {
       app.store.search = e.target.value;
