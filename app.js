@@ -10,6 +10,7 @@ import Cart from './components/cart/Cart.js';
 import CartItem from './components/cart/CartItem.js';
 import Favorites from './components/favorites/Favorites.js';
 import Newsletter from './components/newsletter/Newsletter.js';
+import Toast from './components/newsletter/Toast.js';
 
 HTMLElement.prototype.onClick = function (a, b) {
   this.addEventListener('click', a, b);

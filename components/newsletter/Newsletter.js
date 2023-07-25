@@ -18,10 +18,16 @@ export default class Newsletter extends HTMLComponent {
   setFormBindings(form) {
     form.addEventListener('submit', (event) => {
       event.preventDefault();
-      console.log({
-        email: this.#subscribe.email,
-        interestedIn: this.#subscribe.interestedIn,
-      });
+
+      if (!document.querySelector('toast-element')) {
+        const main = document.querySelector('main');
+        const toast = document.createElement('toast-element');
+        toast.dataset.data = JSON.stringify({
+          email: this.#subscribe.email,
+          interestedIn: this.#subscribe.interestedIn,
+        });
+        main.appendChild(toast);
+      }
 
       form.querySelectorAll('input[type="radio"]').forEach((radio) => {
         radio.checked = false;
