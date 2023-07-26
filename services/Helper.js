@@ -9,3 +9,9 @@ export const badgeHelper = (id) => {
   badge.textContent = qty;
   badge.style.display = !qty ? 'none' : 'flex';
 };
+
+export const validEmail = (value) => {
+  return new RegExp(
+    "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+  ).test(value);
+};

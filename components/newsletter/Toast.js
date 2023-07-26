@@ -1,4 +1,5 @@
 import HTMLComponent from '../HTMLComponent.js';
+import { validEmail } from '../../services/Helper.js';
 
 export default class Toast extends HTMLComponent {
   constructor() {
@@ -9,6 +10,7 @@ export default class Toast extends HTMLComponent {
     this.appendClone('toast-template');
 
     this.subscription = JSON.parse(this.dataset.data);
+    
     this.toast = this.root.querySelector('#toast');
     this.message = this.root.querySelector('p');
     this.image = this.root.querySelector('.icon');
@@ -19,13 +21,16 @@ export default class Toast extends HTMLComponent {
   }
 
   render() {
-    this.renderTime();
+    this.addEventHandlers();
 
-    // TODO: Validate
-    if (this.subscription.email) {
+    if (validEmail(this.subscription.email)) {
       this.displaySuccess();
     }
 
+    this.renderTime();
+  }
+
+  addEventHandlers() {
     this.close.onClick(() => {
       this.closeHandler();
     });
@@ -55,7 +60,8 @@ export default class Toast extends HTMLComponent {
 
   closeHandler() {
     const main = document.querySelector('main');
-    main.removeChild(document.querySelector('toast-element'));
+    if (document.querySelector('toast-element'))
+      main.removeChild(document.querySelector('toast-element'));
   }
 }
 

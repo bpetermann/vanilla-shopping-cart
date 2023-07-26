@@ -1,7 +1,7 @@
 import HTMLComponent from '../HTMLComponent.js';
 
 export default class Newsletter extends HTMLComponent {
-  #subscribe = { email: '', interestedIn: '' };
+  #subscribe = { email: '', interestedIn: 'wfashion' };
 
   constructor() {
     super('newsletter/Newsletter.css');
@@ -33,7 +33,7 @@ export default class Newsletter extends HTMLComponent {
         radio.checked = false;
       });
       this.#subscribe.email = '';
-      this.#subscribe.interestedIn = '';
+      this.#subscribe.interestedIn = 'wfashion';
     });
 
     Array.from(form.elements).forEach((element) => {
