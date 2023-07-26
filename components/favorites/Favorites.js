@@ -32,8 +32,7 @@ export default class Favorites extends HTMLComponent {
   addEventHandlers() {
     [this.backdrop, this.close].map((el) =>
       el.onClick(() => {
-        const main = document.querySelector('main');
-        main.removeChild(document.querySelector('favorites-modal'));
+        this.main.removeChild(document.querySelector('favorites-modal'));
       })
     );
   }

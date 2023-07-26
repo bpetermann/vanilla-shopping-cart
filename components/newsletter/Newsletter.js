@@ -20,13 +20,12 @@ export default class Newsletter extends HTMLComponent {
       event.preventDefault();
 
       if (!document.querySelector('toast-element')) {
-        const main = document.querySelector('main');
         const toast = document.createElement('toast-element');
         toast.dataset.data = JSON.stringify({
           email: this.#subscribe.email,
           interestedIn: this.#subscribe.interestedIn,
         });
-        main.appendChild(toast);
+        this.main.appendChild(toast);
       }
 
       form.querySelectorAll('input[type="radio"]').forEach((radio) => {

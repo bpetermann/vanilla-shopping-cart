@@ -10,7 +10,7 @@ export default class Toast extends HTMLComponent {
     this.appendClone('toast-template');
 
     this.subscription = JSON.parse(this.dataset.data);
-    
+
     this.toast = this.root.querySelector('#toast');
     this.message = this.root.querySelector('p');
     this.image = this.root.querySelector('.icon');
@@ -44,24 +44,24 @@ export default class Toast extends HTMLComponent {
 
   renderTime() {
     let time = 100;
-    const distance = 40;
     const close = this.closeHandler;
 
-    const intervalid = setInterval(() => {
+    this.intervalid = setInterval(() => {
       time -= 1;
       this.bar.style.width = `${time}%`;
-      this.bar.style.transition = `width ${distance}ms`;
+      this.bar.style.transition = `width ${40}ms`;
       if (time === 0) {
-        clearInterval(intervalid);
+        clearInterval(this.intervalid);
         close();
       }
-    }, distance);
+    }, 40);
   }
 
   closeHandler() {
-    const main = document.querySelector('main');
+    clearInterval(this.intervalid);
+
     if (document.querySelector('toast-element'))
-      main.removeChild(document.querySelector('toast-element'));
+    this.main.removeChild(document.querySelector('toast-element'));
   }
 }
 
