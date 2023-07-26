@@ -44,15 +44,13 @@ export default class Toast extends HTMLComponent {
 
   renderTime() {
     let time = 100;
-    const close = this.closeHandler;
 
     this.intervalid = setInterval(() => {
       time -= 1;
       this.bar.style.width = `${time}%`;
       this.bar.style.transition = `width ${40}ms`;
       if (time === 0) {
-        clearInterval(this.intervalid);
-        close();
+        this.closeHandler();
       }
     }, 40);
   }
@@ -61,7 +59,7 @@ export default class Toast extends HTMLComponent {
     clearInterval(this.intervalid);
 
     if (document.querySelector('toast-element'))
-    this.main.removeChild(document.querySelector('toast-element'));
+      this.main.removeChild(document.querySelector('toast-element'));
   }
 }
 
