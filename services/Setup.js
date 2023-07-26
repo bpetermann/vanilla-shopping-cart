@@ -1,3 +1,7 @@
+HTMLElement.prototype.onClick = function (a, b) {
+  this.addEventListener('click', a, b);
+};
+
 const Setup = {
   start() {
     this.select();

@@ -8,20 +8,14 @@ export default class Favorites extends HTMLComponent {
     this.appendClone('favorites-template');
 
     this.list = this.root.querySelector('ul');
+    this.backdrop = this.root.querySelector('#backdrop');
     this.close = this.root.querySelector('button.close');
 
-    this.closeHandler();
+    this.addEventHandlers();
     this.render();
 
     window.addEventListener('favoritesChanged', () => {
       this.render();
-    });
-  }
-
-  closeHandler() {
-    this.close.onClick(() => {
-      const main = document.querySelector('main');
-      main.removeChild(document.querySelector('favorites-modal'));
     });
   }
 
@@ -33,6 +27,15 @@ export default class Favorites extends HTMLComponent {
       item.dataset.product = JSON.stringify(product);
       this.list.appendChild(item);
     });
+  }
+
+  addEventHandlers() {
+    [this.backdrop, this.close].map((el) =>
+      el.onClick(() => {
+        const main = document.querySelector('main');
+        main.removeChild(document.querySelector('favorites-modal'));
+      })
+    );
   }
 }
 
