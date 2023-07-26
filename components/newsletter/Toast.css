@@ -13,7 +13,7 @@
 }
 
 .invalid {
-  background-color: red;
+  background-color: #ff0000;
 }
 
 #toast > div:first-of-type {
@@ -82,5 +82,5 @@ button > img {
 }
 
 .success {
-  background-color: #00875a;
+  background-color: #00ab69;
 }
