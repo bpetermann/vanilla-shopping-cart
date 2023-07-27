@@ -27,6 +27,14 @@ export default class Favorites extends HTMLComponent {
       item.dataset.product = JSON.stringify(product);
       this.list.appendChild(item);
     });
+    this.locales();
+  }
+
+  locales() {
+    const t = app.store.t;
+    const $ = (id) => this.root.querySelector(id);
+
+    $('h3').innerHTML = t['Favorites'];
   }
 
   addEventHandlers() {

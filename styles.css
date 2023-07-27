@@ -389,3 +389,14 @@ footer > div {
   border-right: 1px solid #1a1a1a;
   color: #fff;
 }
+
+footer div select {
+  display: none;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+  footer div select {
+    display: block;
+  }
+}

@@ -23,6 +23,7 @@ const Locale = {
     $('.footer-links li:nth-child(2)').innerHTML = t['Imprint'];
     $('.footer-links li:nth-child(3)').innerHTML = t['Terms'];
     $('.footer-links li:nth-child(4)').innerHTML = t['Data settings'];
+    $('nav.footer-social span').innerHTML = t['Find more inspiration:'];
   },
 };
 

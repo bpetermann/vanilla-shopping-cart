@@ -26,7 +26,7 @@ const Setup = {
     this.favOpen = $('#open-favs');
     this.searchbarBtn = $('.burger-button');
     this.categoryMobile = $('.category-mobile');
-    this.languageSelect = $('select');
+    this.languageSelect = $$('select');
     this.menuBtn = $$('button.menu-button');
   },
 
@@ -77,9 +77,11 @@ const Setup = {
         : this.categoryMobile.classList.add('hide');
     });
 
-    this.languageSelect.onChange((e) => {
-      app.store.language = e.target.value;
-    });
+    this.languageSelect.forEach((item) =>
+      item.onChange((e) => {
+        app.store.language = e.target.value;
+      })
+    );
   },
 };
 
