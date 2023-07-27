@@ -23,14 +23,23 @@ export default class ProductItem extends HTMLComponent {
     window.addEventListener('favoritesChanged', () => {
       this.favoriteClassList();
     });
+
+    window.addEventListener('localesChanged', () => {
+      this.locales();
+    });
   }
 
   render() {
     this.description.textContent = this.product.description;
     this.price.textContent = `${this.product.price} €`;
     this.image.src = `images/products/${this.product.name}.webp`;
+
     this.favoriteClassList();
     this.addEventHandlers();
+  }
+
+  locales() {
+    this.add.innerHTML = app.store.t['Add to Cart'];
   }
 
   favoriteClassList() {
@@ -55,7 +64,7 @@ export default class ProductItem extends HTMLComponent {
     this.add.innerHTML =
       '<img class="loading" src="/images/icons/spinner.gif" alt="...loading" width="24px" height="24px" />';
     setTimeout(() => {
-      this.add.innerHTML = 'Add to Cart';
+      this.add.innerHTML = app.store.t['Add to Cart'];
       this.add.classList.add('added');
       setTimeout(() => {
         this.add.classList.remove('added');

@@ -19,8 +19,8 @@ app.setup = Setup;
 app.locale = Locale;
 
 window.addEventListener('DOMContentLoaded', async () => {
-  app.setup.start();
   app.store.t = await app.locale.load();
+  app.setup.start();
   app.store.products = await loadData();
 });
 

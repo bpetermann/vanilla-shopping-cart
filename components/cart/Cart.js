@@ -50,8 +50,10 @@ export default class Cart extends HTMLComponent {
     this.list.innerHTML = '';
 
     if (app.store.cart.length) {
-      this.heading.textContent = `Cart (${this.totalItems()})`;
-      this.total.textContent = `Total`;
+      this.heading.textContent = `${
+        app.store.t['Cart']
+      } (${this.totalItems()})`;
+      this.total.textContent = app.store.t['Total Amount'];
       this.amount.textContent = `${this.totalPrice()}  $`;
       this.renderItems();
     } else {

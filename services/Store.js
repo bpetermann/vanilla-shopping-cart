@@ -29,6 +29,9 @@ const proxiedStore = new Proxy(Store, {
     if (property === 'language') {
       window.dispatchEvent(new Event('languageChanged'));
     }
+    if (property === 't') {
+      window.dispatchEvent(new Event('localesChanged'));
+    }
     return true;
   },
 });
