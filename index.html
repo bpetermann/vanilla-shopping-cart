@@ -22,8 +22,12 @@
       <div id="navbar">
         <div>
           <div class="menu">
-            <button class="menu-button active">Shoes</button>
-            <button class="menu-button">Bags</button>
+            <button class="menu-button shoes active">Shoes</button>
+            <button class="menu-button bags">Bags</button>
+            <select>
+              <option id="en" value="en">English</option>
+              <option id="de" value="de">German</option>
+            </select>
           </div>
 
           <div id="logo">
@@ -55,8 +59,8 @@
         <input type="text" id="searchbar-text" placeholder="Search" />
       </div>
       <div class="category-mobile">
-        <button class="menu-button mobile active">Shoes</button>
-        <button class="menu-button mobile">Bags</button>
+        <button class="menu-button mobile shoes active">Shoes</button>
+        <button class="menu-button mobile bags">Bags</button>
       </div>
     </header>
     <main>
@@ -175,7 +179,7 @@
             <span></span>
             <span class="total"></span>
           </div>
-          <button class='order'>Order</button>
+          <button class="order">Order</button>
         </div>
       </div>
     </template>

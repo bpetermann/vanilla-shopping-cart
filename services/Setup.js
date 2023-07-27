@@ -2,6 +2,14 @@ HTMLElement.prototype.onClick = function (a, b) {
   this.addEventListener('click', a, b);
 };
 
+HTMLElement.prototype.onChange = function (a, b) {
+  this.addEventListener('change', a, b);
+};
+
+const $ = (id) => document.querySelector(id);
+
+const $$ = (id) => document.querySelectorAll(id);
+
 const Setup = {
   start() {
     this.select();
@@ -10,15 +18,16 @@ const Setup = {
   },
 
   select() {
-    this.main = document.querySelector('main');
-    this.cartOpen = document.querySelector('#open-cart');
-    this.search = document.querySelector('#searchbar-text');
-    this.infoClose = document.querySelector('button.icon-button');
-    this.info = document.querySelector('#info-bar');
-    this.menuBtn = document.querySelectorAll('button.menu-button');
-    this.favOpen = document.querySelector('#open-favs');
-    this.searchbarBtn = document.querySelector('.burger-button');
-    this.categoryMobile = document.querySelector('.category-mobile');
+    this.main = $('main');
+    this.cartOpen = $('#open-cart');
+    this.search = $('#searchbar-text');
+    this.infoClose = $('button.icon-button');
+    this.info = $('#info-bar');
+    this.favOpen = $('#open-favs');
+    this.searchbarBtn = $('.burger-button');
+    this.categoryMobile = $('.category-mobile');
+    this.languageSelect = $('select');
+    this.menuBtn = $$('button.menu-button');
   },
 
   render() {
@@ -58,7 +67,7 @@ const Setup = {
       })
     );
 
-    this.search.addEventListener('change', (e) => {
+    this.search.onChange((e) => {
       app.store.search = e.target.value;
     });
 
@@ -66,6 +75,10 @@ const Setup = {
       this.categoryMobile.classList.contains('hide')
         ? this.categoryMobile.classList.remove('hide')
         : this.categoryMobile.classList.add('hide');
+    });
+
+    this.languageSelect.onChange((e) => {
+      app.store.language = e.target.value;
     });
   },
 };

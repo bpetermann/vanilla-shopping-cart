@@ -5,6 +5,15 @@ const API = {
     const result = await fetch(API.url);
     return await result.json();
   },
+  getLocale: async () => {
+    const url =
+      app.store.language === 'de'
+        ? '../data/locales/de.json'
+        : '../data/locales/en.json';
+
+    const result = await fetch(url);
+    return await result.json();
+  },
 };
 
 export default API;

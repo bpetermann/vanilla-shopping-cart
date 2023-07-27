@@ -4,6 +4,8 @@ const Store = {
   search: '',
   cart: [],
   favorites: [],
+  language: 'en',
+  t: {}, 
 };
 
 const proxiedStore = new Proxy(Store, {
@@ -23,6 +25,9 @@ const proxiedStore = new Proxy(Store, {
     }
     if (property === 'favorites') {
       window.dispatchEvent(new Event('favoritesChanged'));
+    }
+    if (property === 'language') {
+      window.dispatchEvent(new Event('languageChanged'));
     }
     return true;
   },

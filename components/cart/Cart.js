@@ -63,7 +63,7 @@ export default class Cart extends HTMLComponent {
         this.close,
         this.total,
       ].map((el) => (el.style.display = 'none'));
-      this.order.innerHTML = 'No items (yet)';
+      this.order.innerHTML = app.store.t['No items'];
     }
   }
 

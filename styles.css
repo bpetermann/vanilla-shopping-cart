@@ -110,6 +110,11 @@ h3 {
   right: -8px;
 }
 
+select {
+  background-color: #fff;
+  border: 1px solid #d0d1d3;
+}
+
 @media (max-width: 768px) {
   .menu {
     display: none;
