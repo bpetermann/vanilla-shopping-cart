@@ -2,6 +2,10 @@ p {
   margin: 0;
 }
 
+li {
+  list-style: none;
+}
+
 article {
   display: flex;
   flex-direction: column;

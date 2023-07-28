@@ -1,4 +1,4 @@
-import API from './Api.js';
+import API from './API.js';
 
 const $ = (id) => document.querySelector(id);
 

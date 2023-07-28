@@ -33,6 +33,7 @@ export default class ProductItem extends HTMLComponent {
     this.description.textContent = this.product.description;
     this.price.textContent = `${this.product.price} €`;
     this.image.src = `images/products/${this.product.name}.webp`;
+    this.image.alt = `${this.product.name} image`;
 
     this.favoriteClassList();
     this.addEventHandlers();
