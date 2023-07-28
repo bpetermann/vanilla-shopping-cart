@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/js.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shopping Cart</title>
-
+    <meta
+      name="description"
+      content="Shopping cart demo built with vanilla js."
+    />
+    <meta name="theme-color" content="#317EFB" />
+    <link rel="preload" as="image" href="/images/website/model.webp" />
+    <title>Vanilla Cart</title>
     <script src="app.js" defer type="module"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -32,18 +37,28 @@
 
           <div id="logo">
             <div>
-              <img src="/js.svg" class="logo js" alt="js Logo" />
+              <img src="/js.svg" alt="js Logo" width="16" height="18" />
             </div>
             <h3>shopping cart</h3>
           </div>
 
           <nav>
             <button id="open-favs" class="icon-button favorite">
-              <img src="/images/icons/favorite.png" alt="close" />
+              <img
+                src="/images/icons/favorite.png"
+                alt="close"
+                width="24"
+                height="24"
+              />
               <span id="fav-badge"></span>
             </button>
             <button id="open-cart" class="icon-button cart">
-              <img src="/images/icons/cart.png" alt="cart icon" />
+              <img
+                src="/images/icons/cart.png"
+                alt="cart icon"
+                width="24"
+                height="24"
+              />
               <span id="cart-badge"></span>
             </button>
           </nav>
@@ -51,7 +66,7 @@
       </div>
 
       <div id="searchbar">
-        <button class="burger-button">
+        <button class="burger-button" aria-label="toggle-navigation">
           <span></span>
           <span></span>
           <span></span>
@@ -90,19 +105,17 @@
       </template>
       <!-- ProductsItem -->
       <template id="product-item-template">
-        <li>
-          <article>
-            <div>
-              <img />
-              <button class="favorite">
-                <img src="/images/icons/favorite.png" alt="favorite" />
-              </button>
-            </div>
-            <p></p>
-            <p class="price"></p>
-            <button class="add">Add to Cart</button>
-          </article>
-        </li>
+        <article>
+          <div>
+            <img />
+            <button class="favorite">
+              <img src="/images/icons/favorite.png" alt="favorite" />
+            </button>
+          </div>
+          <p></p>
+          <p class="price"></p>
+          <button class="add">Add to Cart</button>
+        </article>
       </template>
       <!-- Newsletter -->
       <template id="newsletter-template">
