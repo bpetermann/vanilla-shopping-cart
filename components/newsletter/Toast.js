@@ -11,11 +11,11 @@ export default class Toast extends HTMLComponent {
 
     this.subscription = JSON.parse(this.dataset.data);
 
-    this.toast = this.root.querySelector('#toast');
-    this.message = this.root.querySelector('p');
-    this.image = this.root.querySelector('.icon');
-    this.close = this.root.querySelector('button');
-    this.bar = this.root.querySelector('.inner');
+    this.toast = this.$('#toast');
+    this.message = this.$('p');
+    this.image = this.$('.icon');
+    this.close = this.$('button');
+    this.bar = this.$('.inner');
 
     this.render();
   }

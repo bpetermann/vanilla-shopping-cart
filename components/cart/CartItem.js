@@ -11,12 +11,12 @@ export default class CartItem extends HTMLComponent {
 
     this.product = JSON.parse(this.dataset.product);
 
-    this.heading = this.root.querySelector('h4');
-    this.price = this.root.querySelector('span.price');
-    this.amount = this.root.querySelector('span.amount');
-    this.close = this.root.querySelector('button.close');
-    this.addButton = this.root.querySelector('button.add');
-    this.deleteButton = this.root.querySelector('button.remove');
+    this.heading = this.$('h4');
+    this.price = this.$('span.price');
+    this.amount = this.$('span.amount');
+    this.close = this.$('button.close');
+    this.addButton = this.$('button.add');
+    this.deleteButton = this.$('button.remove');
 
     this.render();
   }

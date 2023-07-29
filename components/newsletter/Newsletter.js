@@ -10,7 +10,7 @@ export default class Newsletter extends HTMLComponent {
   connectedCallback() {
     this.appendClone('newsletter-template');
 
-    this.form = this.root.querySelector('form');
+    this.form = this.$('form');
     this.setFormBindings(this.form);
     this.locales();
 
@@ -20,16 +20,14 @@ export default class Newsletter extends HTMLComponent {
   }
 
   locales() {
-    const t = app.store.t;
-    const $ = (id) => this.root.querySelector(id);
-
-    $('#newsletter h2').innerHTML = t['JOIN OUR NEWSLETTER!'];
-    $('#newsletter p').innerHTML = t['Keep up to date'];
-    $('form p').innerHTML = t['I am mostly interested in'];
-    $('label[for="wfashion"]').innerHTML = t["Women's Fashion"];
-    $('label[for="mfashion"]').innerHTML = t["Men's Fashion"];
-    $('#newsletter button[type="submit"]').innerHTML = t['Add my Email'];
-    $('#unsubscribe').innerHTML = t['Unsubscribe'];
+    const { t } = app.store;
+    this.$('#newsletter h2').innerHTML = t['JOIN OUR NEWSLETTER!'];
+    this.$('#newsletter p').innerHTML = t['Keep up to date'];
+    this.$('form p').innerHTML = t['I am mostly interested in'];
+    this.$('label[for="wfashion"]').innerHTML = t["Women's Fashion"];
+    this.$('label[for="mfashion"]').innerHTML = t["Men's Fashion"];
+    this.$('#newsletter button[type="submit"]').innerHTML = t['Add my Email'];
+    this.$('#unsubscribe').innerHTML = t['Unsubscribe'];
   }
 
   setFormBindings(form) {

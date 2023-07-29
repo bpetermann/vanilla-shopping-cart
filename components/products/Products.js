@@ -7,22 +7,12 @@ export default class Products extends HTMLComponent {
   connectedCallback() {
     this.appendClone('products-template');
 
-    this.products = this.root.querySelector('#products');
+    this.products = this.$('#products');
 
     ['productsChanged', 'categoryChanged', 'searchChanged'].map((e) =>
       window.addEventListener(e, () => {
         this.render();
       })
-    );
-  }
-
-  filteredProducs() {
-    return app.store.products.filter(
-      (item) =>
-        item.description
-          .toLowerCase()
-          .includes(app.store.search.toLowerCase()) &&
-        item.category.includes(app.store.category)
     );
   }
 
@@ -36,6 +26,16 @@ export default class Products extends HTMLComponent {
       this.products.innerHTML =
         '<img class="loading" src="/images/icons/spinner.gif" alt="...loading" width="24px" height="24px" />';
     }
+  }
+
+  filteredProducs() {
+    return app.store.products.filter(
+      (item) =>
+        item.description
+          .toLowerCase()
+          .includes(app.store.search.toLowerCase()) &&
+        item.category.includes(app.store.category)
+    );
   }
 
   renderItems(filteredproducts) {

@@ -8,7 +8,7 @@ const Locale = {
   },
 
   set() {
-    const t = app.store.t;
+    const { t } = app.store;
 
     $('#info-bar > p').innerHTML = t['FREE SHIPPING AND RETURNS'];
     $('.shoes').innerHTML = t['Shoes'];

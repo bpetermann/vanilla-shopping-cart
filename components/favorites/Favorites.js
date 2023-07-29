@@ -7,9 +7,9 @@ export default class Favorites extends HTMLComponent {
   connectedCallback() {
     this.appendClone('favorites-template');
 
-    this.list = this.root.querySelector('ul');
-    this.backdrop = this.root.querySelector('#backdrop');
-    this.close = this.root.querySelector('button.close');
+    this.list = this.$('ul');
+    this.backdrop = this.$('#backdrop');
+    this.close = this.$('button.close');
 
     this.addEventHandlers();
     this.render();
@@ -31,10 +31,8 @@ export default class Favorites extends HTMLComponent {
   }
 
   locales() {
-    const t = app.store.t;
-    const $ = (id) => this.root.querySelector(id);
-
-    $('h3').innerHTML = t['Favorites'];
+    const { t } = app.store;
+    this.$('h3').innerHTML = t['Favorites'];
   }
 
   addEventHandlers() {

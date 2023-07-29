@@ -12,11 +12,11 @@ export default class ProductItem extends HTMLComponent {
 
     this.product = JSON.parse(this.dataset.product);
 
-    this.description = this.root.querySelector('p');
-    this.price = this.root.querySelector('p.price');
-    this.image = this.root.querySelector('img');
-    this.add = this.root.querySelector('button.add');
-    this.favorite = this.root.querySelector('button.favorite');
+    this.description = this.$('p');
+    this.price = this.$('p.price');
+    this.image = this.$('img');
+    this.add = this.$('button.add');
+    this.favorite = this.$('button.favorite');
 
     this.render();
 
@@ -40,7 +40,8 @@ export default class ProductItem extends HTMLComponent {
   }
 
   locales() {
-    this.add.innerHTML = app.store.t['Add to Cart'];
+    const { t } = app.store;
+    this.add.innerHTML = t['Add to Cart'];
   }
 
   favoriteClassList() {
@@ -62,10 +63,12 @@ export default class ProductItem extends HTMLComponent {
   }
 
   addProduct() {
+    const { t } = app.store;
+
     this.add.innerHTML =
       '<img class="loading" src="/images/icons/spinner.gif" alt="...loading" width="24px" height="24px" />';
     setTimeout(() => {
-      this.add.innerHTML = app.store.t['Add to Cart'];
+      this.add.innerHTML = t['Add to Cart'];
       this.add.classList.add('added');
       setTimeout(() => {
         this.add.classList.remove('added');

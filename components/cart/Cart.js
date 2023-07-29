@@ -7,13 +7,14 @@ export default class Cart extends HTMLComponent {
   connectedCallback() {
     this.appendClone('cart-template');
 
-    this.backdrop = this.root.querySelector('#backdrop');
-    this.list = this.root.querySelector('ul');
-    this.heading = this.root.querySelector('h3');
-    this.total = this.root.querySelector('div > span');
-    this.amount = this.root.querySelector('span.total');
-    this.close = this.root.querySelector('button.close');
-    this.order = this.root.querySelector('button.order');
+    this.backdrop = this.$('#backdrop');
+    this.cart = this.$('#cart > div');
+    this.list = this.$('ul');
+    this.heading = this.$('h3');
+    this.total = this.$('div > span');
+    this.amount = this.$('span.total');
+    this.close = this.$('button.close');
+    this.order = this.$('button.order');
 
     this.addEventHandler();
     this.render();
@@ -21,6 +22,23 @@ export default class Cart extends HTMLComponent {
     window.addEventListener('cartChanged', () => {
       this.render();
     });
+  }
+
+  render() {
+    this.list.innerHTML = '';
+    const { t } = app.store;
+
+    if (app.store.cart.length) {
+      this.heading.textContent = `${
+        app.store.t['Cart']
+      } (${this.totalItems()})`;
+      this.total.textContent = app.store.t['Total Amount'];
+      this.amount.textContent = `${this.totalPrice()}  $`;
+      this.renderItems();
+    } else {
+      this.cart.style.display = 'none';
+      this.order.innerHTML = t['No items'];
+    }
   }
 
   addEventHandler() {
@@ -44,29 +62,6 @@ export default class Cart extends HTMLComponent {
     return app.store.cart.reduce(function (acc, item) {
       return acc + item.amount;
     }, 0);
-  }
-
-  render() {
-    this.list.innerHTML = '';
-
-    if (app.store.cart.length) {
-      this.heading.textContent = `${
-        app.store.t['Cart']
-      } (${this.totalItems()})`;
-      this.total.textContent = app.store.t['Total Amount'];
-      this.amount.textContent = `${this.totalPrice()}  $`;
-      this.renderItems();
-    } else {
-      [
-        this.list,
-        this.heading,
-        this.total,
-        this.amount,
-        this.close,
-        this.total,
-      ].map((el) => (el.style.display = 'none'));
-      this.order.innerHTML = app.store.t['No items'];
-    }
   }
 
   renderItems() {
