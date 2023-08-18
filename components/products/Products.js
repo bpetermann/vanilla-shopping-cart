@@ -1,6 +1,6 @@
-import HTMLComponent from '../HTMLComponent.js';
+import { HTMLComponent } from '../HTMLComponent.js';
 
-export default class Products extends HTMLComponent {
+export class Products extends HTMLComponent {
   constructor() {
     super('products/Products.css');
   }

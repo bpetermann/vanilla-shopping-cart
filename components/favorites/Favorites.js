@@ -1,6 +1,6 @@
-import HTMLComponent from '../HTMLComponent.js';
+import { HTMLComponent } from '../HTMLComponent.js';
 
-export default class Favorites extends HTMLComponent {
+export class Favorites extends HTMLComponent {
   constructor() {
     super('favorites/Favorites.css');
   }

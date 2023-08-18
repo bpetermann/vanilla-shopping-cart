@@ -5,10 +5,10 @@ const Store = {
   cart: [],
   favorites: [],
   language: 'en',
-  t: {}, 
+  t: {},
 };
 
-const proxiedStore = new Proxy(Store, {
+export const proxyStore = new Proxy(Store, {
   set(target, property, value) {
     target[property] = value;
     if (property === 'products') {
@@ -35,5 +35,3 @@ const proxiedStore = new Proxy(Store, {
     return true;
   },
 });
-
-export default proxiedStore;

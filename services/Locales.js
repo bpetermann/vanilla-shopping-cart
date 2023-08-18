@@ -1,8 +1,8 @@
-import API from './API.js';
+import { API } from './API.js';
 
 const $ = (id) => document.querySelector(id);
 
-const Locale = {
+export const Locale = {
   async load() {
     return await API.getLocale();
   },
@@ -26,5 +26,3 @@ const Locale = {
     $('nav.footer-social span').innerHTML = t['Find more inspiration:'];
   },
 };
-
-export default Locale;

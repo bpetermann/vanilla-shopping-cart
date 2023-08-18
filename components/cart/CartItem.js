@@ -1,7 +1,7 @@
-import HTMLComponent from '../HTMLComponent.js';
-import { addToCart, removeFromCart } from '../../services/Cart.js';
+import { HTMLComponent } from '../HTMLComponent.js';
+import { addToCart, removeFromCart } from '../../services/index.js';
 
-export default class CartItem extends HTMLComponent {
+export class CartItem extends HTMLComponent {
   constructor() {
     super('cart/CartItem.css');
   }

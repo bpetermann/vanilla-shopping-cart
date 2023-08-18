@@ -1,7 +1,5 @@
-import API from './API.js';
+import { API } from './API.js';
 
-const loadData = async () => {
- return await API.getProducts();
+export const loadData = async () => {
+  return await API.getProducts();
 };
-
-export default loadData;

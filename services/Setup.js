@@ -7,10 +7,9 @@ HTMLElement.prototype.onChange = function (a, b) {
 };
 
 const $ = (id) => document.querySelector(id);
-
 const $$ = (id) => document.querySelectorAll(id);
 
-const Setup = {
+export const Setup = {
   start() {
     this.select();
     this.render();
@@ -84,5 +83,3 @@ const Setup = {
     );
   },
 };
-
-export default Setup;

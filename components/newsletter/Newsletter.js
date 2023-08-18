@@ -1,6 +1,6 @@
-import HTMLComponent from '../HTMLComponent.js';
+import { HTMLComponent } from '../HTMLComponent.js';
 
-export default class Newsletter extends HTMLComponent {
+export class Newsletter extends HTMLComponent {
   #subscribe = { email: '', interestedIn: 'wfashion' };
 
   constructor() {

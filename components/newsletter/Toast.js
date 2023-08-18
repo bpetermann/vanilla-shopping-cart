@@ -1,7 +1,7 @@
-import HTMLComponent from '../HTMLComponent.js';
+import { HTMLComponent } from '../HTMLComponent.js';
 import { validEmail } from '../../services/Helper.js';
 
-export default class Toast extends HTMLComponent {
+export class Toast extends HTMLComponent {
   constructor() {
     super('newsletter/Toast.css');
   }

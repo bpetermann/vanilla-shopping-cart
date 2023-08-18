@@ -1,8 +1,7 @@
-import HTMLComponent from '../HTMLComponent.js';
-import { addToCart } from '../../services/Cart.js';
-import { toggleFavorite } from '../../services/Favorites.js';
+import { HTMLComponent } from '../HTMLComponent.js';
+import { addToCart, toggleFavorite } from '../../services/index.js';
 
-export default class ProductItem extends HTMLComponent {
+export class ProductItem extends HTMLComponent {
   constructor() {
     super('products/ProductItem.css');
   }
